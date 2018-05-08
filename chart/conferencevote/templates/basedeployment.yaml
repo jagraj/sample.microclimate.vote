@@ -46,7 +46,7 @@ spec:
               configMapKeyRef:
                 name: vappdown
                 key: vappdown
-{{ if ne .Values.test true }}
+{{ if .Values.cloudant.enabled }}
           - name: dbUsername
             valueFrom:
               secretKeyRef:
@@ -63,6 +63,8 @@ spec:
             value: admin
           - name: PASSWORD
             value: password
+{{ end }}
+{{ if ne .Values.test true }}
           - name: MB_KEYSTORE_PASSWORD
             valueFrom:
               secretKeyRef:

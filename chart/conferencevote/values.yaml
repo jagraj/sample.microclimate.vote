@@ -37,7 +37,9 @@ base:
 istio:
   enabled: false
   weight: 100
-test: false
+cloudant:
+  enabled: true
+test: true
 
 
 ## Cloudant parameters
